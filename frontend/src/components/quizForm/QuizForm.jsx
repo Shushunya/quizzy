@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Steps } from "primereact/steps";
-import { NodeService } from "../../services/NodeService";
 import { Button } from "primereact/button";
 import { Panel } from "primereact/panel";
 import QuizGeneralInfo from "./quizFormParts/QuizGeneralInfo";
@@ -18,46 +17,92 @@ const stepsItems = [
 
 export default function QuizForm() {
   const initialQuizData = {
-    title: null,
-    description: null,
+    title: "",
+    description: "",
     category: null,
     quizFocus: null,
     manualComplexity: true,
     complexity: 1,
     questionAmount: 3,
+    isMixedQuestionType: false,
     questionType: 1,
     isGraded: false,
-  }
+    isManuallyGraded: false,
+    questions: [],
+  };
+
+  // const initialQuestionSet = []
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [currentStep, setCurrentStep] = useState(stepsItems[0].label);
   const [quizData, setQuizData] = useState(initialQuizData);
-  
+  // const [questionSet, setQuestionSet] = useState(initialQuestionSet);
+
+  const onUpdateQuizInfo = (name, value) => {
+    setQuizData({ ...quizData, [name]: value });
+  };
+
+  const onUpdateQuestions = (key, name, value) => {
+    setQuizData({
+      ...quizData,
+      questions: {
+        ...quizData.questions,
+        [key]: {
+          ...quizData.questions[key],
+          [name]: value,
+        },
+      },
+    });
+  };
+
+  const handleNextClick = () => {
+    var len = quizData.questionAmount;
+    if (quizData.questions.length === 0) {
+      for (var i = 0; i < len; i++) {
+        quizData.questions.push({
+          key: i,
+          title: "",
+          hint: "",
+          grade: 0,
+          complexity: 1,
+          answers: [],
+        });
+      }
+    }
+
+    setCurrentStepIndex(currentStepIndex + 1);
+  };
+
+  // console.log(quizData);
+
   return (
-    // <div className={css.container}>
-      <div className="flex flex-column align-items-center m-5 gap-5">
+    <div className="flex flex-column align-items-center m-5 gap-5">
       <Steps
         model={stepsItems}
         activeIndex={currentStepIndex}
         onSelect={(e) => {
           setCurrentStepIndex(e.index);
-          setCurrentStep(e.item);
         }}
         pt={{
-          root:{
-            className: 'w-30rem'
-          }
+          root: {
+            className: "w-30rem",
+          },
         }}
       />
-      <Panel pt={{
-        content: {
-          style: {
-            borderRadius: 15
-          }
-        }
-      }}>
-        {currentStepIndex === 0 ? <QuizGeneralInfo data={quizData} /> : null}
-        {currentStepIndex === 1 ? <Questions /> : null}
+      <Panel
+        pt={{
+          content: {
+            style: {
+              borderRadius: 15,
+            },
+          },
+        }}
+      >
+        {currentStepIndex === 0 ? (
+          <QuizGeneralInfo data={quizData} updateHandler={onUpdateQuizInfo} />
+        ) : null}
+        {currentStepIndex === 1 ? (
+          <Questions data={quizData} updateHandler={onUpdateQuestions} />
+        ) : null}
         <div className="flex justify-content-end gap-3">
           {currentStepIndex === 0 ? null : (
             <Button
@@ -71,7 +116,7 @@ export default function QuizForm() {
               icon="pi pi-chevron-right"
               label="Next"
               iconPos="right"
-              onClick={() => setCurrentStepIndex(currentStepIndex + 1)}
+              onClick={handleNextClick}
             />
           )}
         </div>
