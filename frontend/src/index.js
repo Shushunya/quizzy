@@ -4,12 +4,18 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./pages/landingPage";
+import { Header } from "./components/header/Header";
 import { PrimeReactProvider } from "primereact/api";
+import QuizForm from "./components/quizForm/QuizForm";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+  },
+  {
+    path: "/new",
+    element: <QuizForm />,
   },
 ]);
 
@@ -17,6 +23,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <PrimeReactProvider>
+      <Header />
       <RouterProvider router={router} />
     </PrimeReactProvider>
   </React.StrictMode>
