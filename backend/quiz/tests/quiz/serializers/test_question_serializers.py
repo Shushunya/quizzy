@@ -1,13 +1,20 @@
 import pytest
 from quiz.serializers import QuestionSerializer
-from quiz.tests.factories import QuestionFactory
+from quiz.tests.factories import QuestionFactory, QuizFactory
 
 pytestmark = pytest.mark.django_db
 
+
 @pytest.fixture
-def question_attrs():
+def quiz():
+    return QuizFactory()
+
+
+@pytest.fixture
+def question_attrs(quiz):
     return {
-        'text': "Default Question Text"
+        'text': "Default Question Text",
+        'quiz': quiz
     }
 
 
@@ -20,7 +27,7 @@ def question(question_attrs):
 def serializer(question):
     return QuestionSerializer(instance=question)
 
-# TODO: add tests for quiz field 
+
 class TestQuestionSerializer:
 
     def test_contains_expected_fields(self, serializer):
@@ -30,4 +37,8 @@ class TestQuestionSerializer:
 
     def test_text_field_content(self, question_attrs, serializer):
         data = serializer.data
-        assert data['text'] == question_attrs['text']    
+        assert data['text'] == question_attrs['text']
+
+    def test_quiz_field_content(self, question_attrs, serializer):
+        data = serializer.data
+        assert data['quiz'] == question_attrs['quiz'].pk
