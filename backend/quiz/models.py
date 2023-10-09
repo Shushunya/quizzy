@@ -17,8 +17,14 @@ class Question(models.Model):
     text = models.CharField(max_length=150)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 
+    def __str__(self) -> str:
+        return self.text
+
 
 class Answer(models.Model):
     text = models.CharField(max_length=150)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     is_correct = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return self.text
