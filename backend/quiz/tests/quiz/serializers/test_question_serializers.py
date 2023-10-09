@@ -28,6 +28,6 @@ class TestQuestionSerializer:
         data = serializer.data
         assert set(data.keys()) == set(self.expected_keys)
 
-    def test_title_field_content(self, question_attrs, serializer):
+    def test_text_field_content(self, question_attrs, serializer):
         data = serializer.data
         assert data['text'] == question_attrs['text']    
