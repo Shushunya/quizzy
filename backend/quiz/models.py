@@ -6,8 +6,11 @@ from django.db import models
 class Quiz(models.Model):
     title = models.CharField(max_length=50)
 
+    class Meta:
+        verbose_name_plural = "quizzes"
+
     def __str__(self) -> str:
-        return f"Quiz {self.pk}"
+        return self.title
 
 
 class Question(models.Model):
