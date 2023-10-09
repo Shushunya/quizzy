@@ -1,9 +1,9 @@
 ---
-name: Feature request
+name: Feature request [BE]
 about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+title: "[BE]"
+labels: BE, enhancement
+assignees: Shushunya
 
 ---
 
