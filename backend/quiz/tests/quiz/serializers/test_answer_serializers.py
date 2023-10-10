@@ -1,6 +1,6 @@
 import pytest
 from quiz.serializers import AnswerSerializer
-from quiz.tests.factories import AnswerFactory, QuestionFactory
+from quiz.tests.factories import QuestionFactory, AnswerFactory
 
 
 pytestmark = pytest.mark.django_db

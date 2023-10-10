@@ -7,7 +7,7 @@ class QuizFactory(factory.django.DjangoModelFactory):
         model = 'quiz.Quiz'
         django_get_or_create = ("title",)
 
-    title = "Quiz title"
+    title = factory.Sequence(lambda n: f"Quiz title {n}")
 
 
 class QuestionFactory(factory.django.DjangoModelFactory):
@@ -16,7 +16,7 @@ class QuestionFactory(factory.django.DjangoModelFactory):
         model = 'quiz.Question'
         django_get_or_create = ("text",)
 
-    text = "Some question text"
+    text = factory.Sequence(lambda n: f"Question text {n}")
     quiz = factory.SubFactory(QuizFactory)
 
 
@@ -26,6 +26,7 @@ class AnswerFactory(factory.django.DjangoModelFactory):
         model = 'quiz.Answer'
         django_get_or_create = ("text",)
 
-    text = "Some answer text"
+    # text = "Some answer text"
+    text = factory.Sequence(lambda n: f"Answer text {n}")
     is_correct = False
     question = factory.SubFactory(QuestionFactory)
