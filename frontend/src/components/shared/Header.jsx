@@ -12,7 +12,7 @@ export function Header() {
     <div className={css.container}>
       <Link className={css.logo} to={'/'}>Quizzy</Link>
       <div >
-        <Link to={"/accounts/me"} className={css.login}>
+        <Link to={isAuth ? "/users/me" : "/login"} className={css.login}>
           <i className="pi pi-fw pi-user"></i>
           <span>{isAuth ? username : "Login"}</span>
         </Link>
