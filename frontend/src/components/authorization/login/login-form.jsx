@@ -49,7 +49,7 @@ export function LoginForm() {
             pt={{
               input: {
                 className:
-                  "bg-bluegray-400 text-0 hover:border-bluegray-300 focus:border-bluegray-300 w-30rem",
+                  "bg-bluegray-400 text-0 hover:border-bluegray-300 focus:border-bluegray-300 w-full",
               },
               hideIcon: {
                 className: "text-0",
