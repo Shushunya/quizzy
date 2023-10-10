@@ -1,21 +1,6 @@
 name: Testing BE
 on: pull_request
 
-# env:
-#   SECRET_KEY: django-insecure-8p_=_(i8$#=t_n26md(d7=gpc%5sss!4-1a0cp(lir3-0x^$8%
-#   PG_DB: db
-#   PG_USER: postgres
-#   PG_PASSWORD: postgres
-#   DB_HOST: 127.0.0.1
-#   DB_PORT: 5432
-#   EMAIL_BACKEND: django.core.mail.backends.smtp.EmailBackend
-#   EMAIL_HOST: smtp.gmail.com
-#   EMAIL_PORT: 572
-#   EMAIL_USE_TLS: 1
-#   EMAIL_HOST_USER: test@test.com
-#   EMAIL_HOST_PASSWORD: Test1234
-#   CORS_ORIGIN_WHITELIST: ''
-
 jobs:
   build:
     name: Testing
@@ -27,6 +12,7 @@ jobs:
           python-verion: 3.11
       - name: install requirements.txt
         run: |
+          cd backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Create Migrations
