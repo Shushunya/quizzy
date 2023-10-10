@@ -7,13 +7,19 @@ assignees: Shushunya
 
 ---
 
-**Requested changes**
+### Changes overview
 
-- [ ] Add item 1
-- [ ] Change Item 2
-- [ ] Delete Item 3
+**Type of docs**: ReadMe/DB Schema/Field table/Use Case digrams/ERM diagram/Workflow
+**Source**: [link]
 
-**Changes requested due to**
-- List of 
-- changes made with 
-- issue & PR numbers
+**Previous version** : 
+[image]
+
+**Current version** : 
+[image]
+
+
+**Change log**
+- [ ] additions
+- [ ] alterations
+- [ ] removals

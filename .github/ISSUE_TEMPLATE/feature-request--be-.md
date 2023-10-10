@@ -1,20 +1,28 @@
 ---
 name: Feature request [BE]
-about: Suggest an idea for this project
+about: Backend feature part
 title: "[BE]"
 labels: BE, enhancement
 assignees: Shushunya
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+### Requirements
+**What to do**
+- [ ] tests 
+- [ ] code
+- [ ] db schema update
+- [ ] table update
+- [ ] readme update
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+### Acceptance criteria
+**feature**
+- [ ] issue to be linked (subtask)
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**testing**
+- [ ] tests written (issues)
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**CI**
+- [ ] all tests pass
+- [ ] coverage is above 80%
+- [ ] linter check passes
