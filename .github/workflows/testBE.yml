@@ -1,9 +1,13 @@
 name: Testing BE
-on: pull_request
+on:
+  push:
+    paths:
+      - '**.py'
 
 jobs:
   build:
-    name: Testing
+    if: 
+    name: Pytest backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
