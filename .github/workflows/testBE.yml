@@ -23,4 +23,5 @@ jobs:
       - name: running tests
         run: |
           cd backend
-          pytest
+          # pytest
+          python manage.py test
