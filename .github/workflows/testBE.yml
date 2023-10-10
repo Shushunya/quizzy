@@ -1,0 +1,27 @@
+name: Testing BE
+on: pull_request
+
+jobs:
+  build:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-verion: 3.11
+      - name: install requirements.txt
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Create Migrations
+        run: |
+          cd backend
+          python manage.py makemigrations 
+          python manage.py migrate
+      - name: running tests
+        run: |
+          cd backend
+          # pytest
+          python manage.py test
