@@ -3,14 +3,31 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./pages/error-page";
 import LandingPage from "./pages/landingPage";
+import Root from "./routes/root";
 import { PrimeReactProvider } from "primereact/api";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage/>
+      },
+      {
+        path: "/accounts/me",
+        element: <div>User management</div>
+      }
+    ]
   },
+  // {
+  //   path: "/new",
+  //   element: <Other/>
+  // }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
