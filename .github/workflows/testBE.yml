@@ -1,7 +1,7 @@
 name: Testing BE
-on: 
-  pull_request:
-    path:
+on:
+  push:
+    paths:
       - '**.py'
 
 jobs:
