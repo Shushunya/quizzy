@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PrimeReactProvider } from "primereact/api";
+import reportWebVitals from "./reportWebVitals";
+
 import ErrorPage from "./pages/error-page";
 import LandingPage from "./pages/landingPage";
+import { LoginPage } from "./pages/authorization/login-page";
+import { SignUpPage } from "./pages/authorization/signup-page";
 import Root from "./routes/root";
-import { PrimeReactProvider } from "primereact/api";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -19,15 +23,19 @@ const router = createBrowserRouter([
         element: <LandingPage/>
       },
       {
-        path: "/accounts/me",
-        element: <div>User management</div>
+        path: "/login",
+        element: <LoginPage />
+      },
+      {
+        path: "/signup",
+        element: <SignUpPage />
       }
     ]
   },
-  // {
-  //   path: "/new",
-  //   element: <Other/>
-  // }
+  {
+    path: "/accounts/me",
+    element: <div>User management</div>
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
