@@ -22,7 +22,7 @@ export function SignUpForm() {
       id="signup-form"
       className="flex flex-column gap-1 p-4 bg-bluegray-300 text-bluegray-900 border-round-md border-solid border-1 border-bluegray-300"
     >
-      <span className="flex justify-content-center text-4xl">Login</span>
+      <span className="flex justify-content-center text-4xl">Sign up</span>
       <div className="flex flex-column align-items-stretch gap-3 p-3 w-30rem">
         <div className="field flex flex-column">
           <label htmlFor="username">Username</label>

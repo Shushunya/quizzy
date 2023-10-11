@@ -9,9 +9,9 @@ import { Header } from "../components/shared/header/Header";
 
 export function Root() {
   return (
-    <div className="flex flex-column min-h-screen">
+    <div className="flex flex-column align-items-stretch min-h-screen">
       <Header />
-      <div className="flex flex-grow-1">
+      <div className="flex flex-grow-1 align-items-stretch justify-content-around">
         <Outlet />
       </div>
       <Footer />
