@@ -7,8 +7,9 @@ import reportWebVitals from "./reportWebVitals";
 import { ErrorPage } from "./pages/error-page";
 import { LandingPage } from "./pages/landingPage";
 import { LoginPage } from "./pages/authorization/login-page";
+import { Root } from "./pages/root";
 import { SignUpPage } from "./pages/authorization/signup-page";
-import { Root } from "./routes/root";
+import { QuizListPage } from "./pages/quiz-list-page";
 
 import "./index.css";
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUpPage />,
+      },
+      {
+        path: "/quizzes",
+        element: <QuizListPage />,
       },
     ],
   },
