@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export function Footer() {
   // TODO: add font styles
   // FIXME: adjust footer
+  // TODO: add version
 
   return (
     <footer className="flex bg-bluegray-800 align-items-start h-5rem gap-3 p-3">

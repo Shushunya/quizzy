@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import css from "./Header.module.css";
 
 export function Header() {
   // TODO: add theme switcher
