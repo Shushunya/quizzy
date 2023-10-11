@@ -4,11 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PrimeReactProvider } from "primereact/api";
 import reportWebVitals from "./reportWebVitals";
 
-import ErrorPage from "./pages/error-page";
-import LandingPage from "./pages/landingPage";
+import { ErrorPage } from "./pages/error-page";
+import { LandingPage } from "./pages/landingPage";
 import { LoginPage } from "./pages/authorization/login-page";
 import { SignUpPage } from "./pages/authorization/signup-page";
-import Root from "./routes/root";
+import { Root } from "./routes/root";
 
 import "./index.css";
 
@@ -20,21 +20,21 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingPage/>
+        element: <LandingPage />,
       },
       {
         path: "/login",
-        element: <LoginPage />
+        element: <LoginPage />,
       },
       {
         path: "/signup",
-        element: <SignUpPage />
-      }
-    ]
+        element: <SignUpPage />,
+      },
+    ],
   },
   {
     path: "/accounts/me",
-    element: <div>User management</div>
+    element: <div>User management</div>,
   },
 ]);
 

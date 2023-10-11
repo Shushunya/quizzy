@@ -1,7 +1,7 @@
 import "primeicons/primeicons.css";
 import { Link } from "react-router-dom";
 
-export default function LandingPage() {
+export function LandingPage() {
   return (
     <>
       <div className='flex flex-column align-items-center p-3'>

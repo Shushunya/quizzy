@@ -4,10 +4,10 @@ import "primereact/resources/themes/soho-dark/theme.css";
 import "/node_modules/primeflex/primeflex.css";
 import "primeicons/primeicons.css";
 
-import { Footer } from "../components/shared/Footer";
-import { Header } from "../components/shared/Header";
+import { Footer } from "../components/shared/footer/Footer";
+import { Header } from "../components/shared/header/Header";
 
-export default function Root() {
+export function Root() {
   return (
     <div className="flex flex-column min-h-screen">
       <Header />
