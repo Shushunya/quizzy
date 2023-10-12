@@ -1,0 +1,40 @@
+.card {
+    display: flex;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 80%;
+    gap: 0.7rem;
+    align-items: stretch;
+}
+
+.title {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--primary-400);
+}
+
+.info {
+    font-size: 0.9rem;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}

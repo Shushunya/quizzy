@@ -1,10 +1,9 @@
-import { QuizList } from "../components/shared/quiz/quiz-list";
+import { QuizList } from "../components/quiz/quiz-list";
 
 export function QuizListPage() {
   return (
-    <>
-      <p>Quiz List Page</p>
+    <div className="flex flex-column w-full p-5">
       <QuizList />
-    </>
+    </div>
   );
 }

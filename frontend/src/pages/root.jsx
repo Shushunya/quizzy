@@ -11,7 +11,7 @@ export function Root() {
   return (
     <div className="flex flex-column align-items-stretch min-h-screen">
       <Header />
-      <div className="flex flex-grow-1 align-items-stretch justify-content-around">
+      <div className="flex flex-grow-1 align-items-stretch justify-content-around surface-ground">
         <Outlet />
       </div>
       <Footer />
