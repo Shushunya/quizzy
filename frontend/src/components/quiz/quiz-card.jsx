@@ -1,5 +1,6 @@
 import { Button } from "primereact/button";
 import css from "./quiz-card.module.css";
+import { Link } from "react-router-dom";
 
 const QUIZ = {
   title: "Clean code best practices",
@@ -15,7 +16,7 @@ export const listItem = (quiz) => {
     <div className={css.card}>
       <div className={css.content}>
         <div className={css.text}>
-          <div className={css.title}>{quiz.title}</div>
+          <Link to={`/quizzes/${quiz.id}`} className={css.title}>{quiz.title}</Link>
           <div className={css.info}>{quiz.description}</div>
           <div className="flex align-items-center gap-2">
             <i className="pi pi-tag"></i>
@@ -44,7 +45,7 @@ export const gridItem = (quiz) => {
           </div>
         </div>
         <div className="flex flex-column align-items-center gap-3 py-5">
-          <div className="text-2xl font-bold">{quiz.title}</div>
+          <Link to={`/quizzes/${quiz.id}`} className="text-2xl font-bold">{quiz.title}</Link>
           <div className={css.info}>{quiz.description}</div>
 
         </div>

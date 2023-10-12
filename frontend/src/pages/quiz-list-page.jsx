@@ -1,4 +1,4 @@
-import { QuizList } from "../components/quiz/quiz-list";
+import { QuizList } from "../components/quiz/list/quiz-list";
 
 export function QuizListPage() {
   return (
