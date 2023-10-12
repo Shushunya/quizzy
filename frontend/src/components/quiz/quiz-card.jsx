@@ -1,5 +1,4 @@
 import { Button } from "primereact/button";
-import { Rating } from "primereact/rating";
 import css from "./quiz-card.module.css";
 
 const QUIZ = {
@@ -10,6 +9,7 @@ const QUIZ = {
     "Test your understanding of basic best practices, including DRY, KISS, YAGNI etc",
 };
 
+// TODO: fix styles
 export const listItem = (quiz) => {
   return (
     <div className={css.card}>
@@ -30,6 +30,8 @@ export const listItem = (quiz) => {
     </div>
   );
 };
+
+// TODO: fix tyles
 
 export const gridItem = (quiz) => {
   return (

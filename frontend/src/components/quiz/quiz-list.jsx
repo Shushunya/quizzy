@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DataView, DataViewLayoutOptions } from "primereact/dataview";
 import { listItem, gridItem } from "./quiz-card";
+
 const QUIZZES = [
   {
     title: "Quiz 1",
@@ -57,7 +58,7 @@ export function QuizList() {
     if (layout === "list") return listItem(quiz);
     else if (layout === "grid") return gridItem(quiz);
   };
-
+// TODO: adjust header title
   const header = () => {
     return (
       <div className="flex justify-content-between">
@@ -83,6 +84,7 @@ export function QuizList() {
       </div>
     );
   };
+  // TODO: adjust styles
 
   return (
     <div className="card">
@@ -93,17 +95,6 @@ export function QuizList() {
         header={header()}
         paginator
         rows={6}
-        // pt={{
-        //   // grid: {
-        //   //   className: { className: 'surface-ground'}
-        //   // },
-        //   // header: {
-        //   //   className: "border-round-top",
-        //   // },
-        //   paginator: {
-        //     className: "bg-primary-700 border-round",
-        //   },
-        // }}
       />
     </div>
   );
