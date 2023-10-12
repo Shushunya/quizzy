@@ -2,14 +2,6 @@ import { Button } from "primereact/button";
 import css from "./quiz-card.module.css";
 import { Link } from "react-router-dom";
 
-const QUIZ = {
-  title: "Clean code best practices",
-  rating: 4.5,
-  category: "Programming",
-  description:
-    "Test your understanding of basic best practices, including DRY, KISS, YAGNI etc",
-};
-
 // TODO: fix styles
 export const listItem = (quiz) => {
   return (
