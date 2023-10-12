@@ -2,7 +2,7 @@ name: Testing BE
 on:
   push:
     paths:
-      - '**.py'
+      - 'backend/**'
 
 jobs:
   build:
