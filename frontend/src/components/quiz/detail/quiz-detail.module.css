@@ -5,7 +5,7 @@
   border: 1px solid var(--bluegray-800);
   background-color: var(--bluegray-900);
   border-radius: 0.4rem;
-  height: 90%;
+  /* height: 90%; */
 }
 
 .header {
@@ -19,7 +19,7 @@
 .content {
   display: flex;
   padding: 1rem;
-  height: 70%;
+  /* height: 70%; */
   justify-content: center;
   align-items: center;
 }
