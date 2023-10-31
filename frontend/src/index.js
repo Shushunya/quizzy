@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ErrorPage } from "./pages/error-page";
 import { LandingPage } from "./pages/landingPage";
 import { LoginPage } from "./pages/authorization/login-page";
+import { MyQuizzesPage } from "./pages/quiz management/my-quizzes-page";
 import { Root } from "./pages/root";
 import { SignUpPage } from "./pages/authorization/signup-page";
 import { QuizDetailPage } from "./pages/quiz-detail-page";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <LandingPage />,
+      },
+      {
+        path: "/:userName/quizzes",
+        element: <MyQuizzesPage />
       },
       {
         path: "/login",

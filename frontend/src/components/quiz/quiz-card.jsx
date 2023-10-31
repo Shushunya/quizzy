@@ -38,6 +38,7 @@ export const gridItem = (quiz) => {
         </div>
         <div className="flex flex-column align-items-center gap-3 py-5">
           <Link to={`/quizzes/${quiz.id}`} className="text-2xl font-bold">{quiz.title}</Link>
+          {/* <Link to={`/quizzes/${quiz.id}`}>something</Link> */}
           <div className={css.info}>{quiz.description}</div>
 
         </div>
