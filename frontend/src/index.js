@@ -7,12 +7,15 @@ import reportWebVitals from "./reportWebVitals";
 import { ErrorPage } from "./pages/error-page";
 import { LandingPage } from "./pages/landingPage";
 import { LoginPage } from "./pages/authorization/login-page";
+import { MyQuizzesPage } from "./pages/quiz management/my-quizzes-page";
 import { Root } from "./pages/root";
 import { SignUpPage } from "./pages/authorization/signup-page";
 import { QuizDetailPage } from "./pages/quiz-detail-page";
 import { QuizListPage } from "./pages/quiz-list-page";
 
 import "./index.css";
+
+const userName = "Shushunya";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +25,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingPage />,
+        element: <LandingPage userName={userName}/>,
+      },
+      {
+        path: "/:userName/quizzes",
+        element: <MyQuizzesPage userName={userName}/>
       },
       {
         path: "/login",
