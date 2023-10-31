@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Panel } from "primereact/panel";
 import { RadioButton } from "primereact/radiobutton";
 
 export const QuestionCard = ({ question, handleChange, userAnswer }) => {
   const [isShown, setIsShown] = useState(false);
   return (
-    <Panel header={`Question #${question.id}`} toggleable>
+    <div className="flex flex-column p-3 gap-2">
       <div className="flex justify-content-between">
         {question.text}
         <div className="flex flex-row-reverse gap-3">
@@ -15,7 +14,7 @@ export const QuestionCard = ({ question, handleChange, userAnswer }) => {
       </div>
       <div>Choose your answer:</div>
       {question.answers.map((answer) => (
-        <div key={answer.id} className="flex align-items-center p-1">
+        <div key={answer.id} className="flex align-items-center ">
           <RadioButton
             inputId={answer.id}
             name="answer"
@@ -28,6 +27,6 @@ export const QuestionCard = ({ question, handleChange, userAnswer }) => {
           </label>
         </div>
       ))}
-    </Panel>
+    </div>
   );
 };

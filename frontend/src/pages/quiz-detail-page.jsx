@@ -16,7 +16,7 @@ export function QuizDetailPage() {
   const items = [{ label: "Quizzes", url: "/quizzes" }, { label: QUIZ.title }];
   // TODO: change to the data fetching
   return (
-    <div className="w-full p-3">
+    <div className="flex flex-column w-full p-3 gap-3">
       <div className="max-w-max">
         <BreadCrumb model={items} home={home} />
       </div>
