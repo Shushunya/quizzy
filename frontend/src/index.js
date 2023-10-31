@@ -1,12 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./pages/error-page";
-import LandingPage from "./pages/landingPage";
-import Root from "./routes/root";
 import { PrimeReactProvider } from "primereact/api";
+import reportWebVitals from "./reportWebVitals";
+
+import { ErrorPage } from "./pages/error-page";
+import { LandingPage } from "./pages/landingPage";
+import { LoginPage } from "./pages/authorization/login-page";
+import { MyQuizzesPage } from "./pages/quiz management/my-quizzes-page";
+import { Root } from "./pages/root";
+import { SignUpPage } from "./pages/authorization/signup-page";
+import { QuizDetailPage } from "./pages/quiz-detail-page";
+import { QuizListPage } from "./pages/quiz-list-page";
+
+import "./index.css";
+
+const userName = "Shushunya";
 
 const router = createBrowserRouter([
   {
@@ -16,18 +25,34 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingPage/>
+        element: <LandingPage userName={userName}/>,
       },
       {
-        path: "/accounts/me",
-        element: <div>User management</div>
+        path: "/:userName/quizzes",
+        element: <MyQuizzesPage userName={userName}/>
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/signup",
+        element: <SignUpPage />,
+      },
+      {
+        path: "/quizzes",
+        element: <QuizListPage />,
+      },
+      {
+        path: "/quizzes/:pk",
+        element: <QuizDetailPage />
       }
-    ]
+    ],
   },
-  // {
-  //   path: "/new",
-  //   element: <Other/>
-  // }
+  {
+    path: "/accounts/me",
+    element: <div>User management</div>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
