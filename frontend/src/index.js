@@ -15,6 +15,8 @@ import { QuizListPage } from "./pages/quiz-list-page";
 
 import "./index.css";
 
+const userName = "Shushunya";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,11 +25,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingPage />,
+        element: <LandingPage userName={userName}/>,
       },
       {
         path: "/:userName/quizzes",
-        element: <MyQuizzesPage />
+        element: <MyQuizzesPage userName={userName}/>
       },
       {
         path: "/login",

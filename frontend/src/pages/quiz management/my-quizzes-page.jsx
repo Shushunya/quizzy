@@ -1,6 +1,7 @@
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "primereact/button";
 
 const QUIZZES = [
   {
@@ -53,10 +54,13 @@ const QUIZZES = [
   },
 ];
 
-export function MyQuizzesPage(props) {
-    const navigate = useNavigate();
+export function MyQuizzesPage({ userName }) {
+  const navigate = useNavigate();
   return (
-    <div className="card">
+    <div className="flex flex-column">
+      <Link to={`/${userName}/quizzes/new`}>
+        <Button label="create" />
+      </Link>
       <DataTable
         value={QUIZZES}
         tableStyle={{ minWidth: "50rem" }}
