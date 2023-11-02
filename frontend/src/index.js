@@ -10,6 +10,7 @@ import { LoginPage } from "./pages/authorization/login-page";
 import { MyQuizzesPage } from "./pages/quiz management/my-quizzes-page";
 import { Root } from "./pages/root";
 import { SignUpPage } from "./pages/authorization/signup-page";
+import { QuizCreatePage } from "./pages/quiz management/quiz-create-page";
 import { QuizDetailPage } from "./pages/quiz-detail-page";
 import { QuizListPage } from "./pages/quiz-list-page";
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/:userName/quizzes",
         element: <MyQuizzesPage userName={userName}/>
+      },
+      {
+        path: "/:userName/quizzes/new",
+        element: <QuizCreatePage />
       },
       {
         path: "/login",
