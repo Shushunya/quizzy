@@ -1,5 +1,5 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from .serializers import QuizSerializer, QuestionSerializer, AnswerSerializer
+from .serializers import QuizSerializer, QuestionSerializer, AnswerSerializer, QuizListSerializer, QuizCreateSerializer
 from .models import Quiz, Question, Answer
 # Create your views here.
 
@@ -7,6 +7,12 @@ from .models import Quiz, Question, Answer
 class QuizList(ListCreateAPIView):
     serializer_class = QuizSerializer
     queryset = Quiz.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.method == "GET":
+            return QuizListSerializer
+        elif self.request.method == "POST":
+            return QuizCreateSerializer
 
 
 class QuizDetail(RetrieveUpdateDestroyAPIView):

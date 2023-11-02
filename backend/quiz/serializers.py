@@ -8,6 +8,16 @@ class QuizSerializer(serializers.ModelSerializer):
         model = Quiz
         fields = "__all__"
 
+class QuizCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quiz
+        fields = "__all__"
+
+class QuizListSerializer(serializers.ModelSerializer):
+    questions_amount = serializers.IntegerField()
+    class Meta:
+        model = Quiz
+        fields = ("title", "complexity", "focus", "description", "questions_amount")
 
 class QuestionSerializer(serializers.ModelSerializer):
     # TODO: split into list and detail serializer later
