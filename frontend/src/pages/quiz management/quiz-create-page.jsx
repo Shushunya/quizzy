@@ -52,6 +52,27 @@ export function QuizCreatePage() {
         },
       },
     });
+    // console.log(quizData)
+  };
+
+  const onUpdateAnswers = (key, name, value) => {
+    setQuizData({
+      ...quizData,
+      questions: {
+        ...quizData.questions,
+        [key]: {
+          ...quizData.questions[key],
+          answers: {
+            ...quizData.questions[key].answers,
+            [key]: {
+              ...quizData.questions[key].answers[key],
+              [name]: value,
+            },
+          },
+        },
+      },
+    });
+    // console.log(quizData)
   };
 
   const handleNextClick = () => {
@@ -101,7 +122,7 @@ export function QuizCreatePage() {
           <QuizGeneralInfo data={quizData} updateHandler={onUpdateQuizInfo} />
         ) : null}
         {currentStepIndex === 1 ? (
-          <Questions data={quizData} updateHandler={onUpdateQuestions} />
+          <Questions data={quizData} updateHandler={onUpdateQuestions} answersUpdate={onUpdateAnswers} />
         ) : null}
         <div className="flex justify-content-end gap-3">
           {currentStepIndex === 0 ? null : (

@@ -1,11 +1,15 @@
 import { Panel } from "primereact/panel";
 import { Fieldset } from "primereact/fieldset";
 import { InputText } from "primereact/inputtext";
+
+import { Checkbox } from 'primereact/checkbox';
+        
 import { useState } from "react";
 
-export default function QuestionBlock({ data, updateHandler }) {
+export function QuestionBlock({ data, updateHandler, answersUpdate }) {
   const [title, setTitle] = useState("");
-  console.log(data)
+  // console.log(data)
+  const onAnswerChange = () => {};
 
   return (
     <Fieldset legend={`Question ${data.key + 1}`} toggleable>
@@ -16,7 +20,7 @@ export default function QuestionBlock({ data, updateHandler }) {
           placeholder="Enter the title of your question"
           value={data.title}
           onChange={(e) => updateHandler(data.key, "title", e.target.value)}
-            size={100}
+          size={100}
         />
       </div>
       <div className="field">
@@ -26,7 +30,7 @@ export default function QuestionBlock({ data, updateHandler }) {
           placeholder="Enter the hint for your question"
           value={data.hint}
           onChange={(e) => updateHandler(data.key, "hint", e.target.value)}
-            size={100}
+          size={100}
         />
       </div>
       <div className="field">
@@ -35,8 +39,27 @@ export default function QuestionBlock({ data, updateHandler }) {
           id="title"
           placeholder="Enter the title of your new quiz"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => answersUpdate(e.target.value)}
         />
+      </div>
+      <div className="field">
+        <label htmlFor="title">Answer 1</label>
+        <InputText
+          id="title"
+          placeholder="Enter the title of your new quiz"
+          value={title}
+          onChange={(e) => answersUpdate(e.target.value)}
+        />
+      </div>
+      <div className="field">
+        <label htmlFor="title">Answer 1</label>
+        <InputText
+          id="title"
+          placeholder="Enter the title of your new quiz"
+          value={title}
+          onChange={(e) => answersUpdate(e.target.value)}
+        />
+        <Checkbox inputId="answer"/>
       </div>
     </Fieldset>
   );

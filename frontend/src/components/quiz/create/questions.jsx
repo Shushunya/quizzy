@@ -2,9 +2,11 @@ import { Panel } from "primereact/panel";
 import { Fieldset } from "primereact/fieldset";
 import { InputText } from "primereact/inputtext";
 import { useState } from "react";
+import { QuestionBlock } from "./question-block";
 
-export function Questions() {
+export function Questions({ data, updateHandler, answersUpdate }) {
   const [title, setTitle] = useState(null);
+  const { questions } = data;
   return (
     <Panel
       pt={{
@@ -21,47 +23,9 @@ export function Questions() {
       }}
     >
       <div className="flex flex-column gap-3 ">
-        <Fieldset legend="Question 1" toggleable>
-          Question 1
-          <div className="flex align-items-center gap-3">
-            <label htmlFor="title">Question title</label>
-            <InputText
-              id="title"
-              placeholder="Enter the title of your new quiz"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="flex align-items-center gap-3">
-            <label htmlFor="title">Answer 1</label>
-            <InputText
-              id="title"
-              placeholder="Enter the title of your new quiz"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="flex align-items-center gap-3">
-            <label htmlFor="title">Answer 2</label>
-            <InputText
-              id="title"
-              placeholder="Enter the title of your new quiz"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="flex align-items-center gap-3">
-            <label htmlFor="title">Answer 3</label>
-            <InputText
-              id="title"
-              placeholder="Enter the title of your new quiz"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-        </Fieldset>
-        <Fieldset legend="Question 2">Question 2</Fieldset>
-        <Fieldset legend="Question 3">Question 3</Fieldset>
+        {questions.map((question) => (
+          <QuestionBlock data={question} updateHandler={updateHandler} answersUpdate={answersUpdate} />
+        ))}
       </div>
     </Panel>
   );
